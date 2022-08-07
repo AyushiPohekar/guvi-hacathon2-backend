@@ -41,7 +41,7 @@ router.post("/",async function (request, response) {
    response.send(result);
   });
 
-  router.put("edit/:id", async function (request, response) {
+  router.put("/edit/:id", async function (request, response) {
     
     const { id } = request.params;
     console.log(request.params, id);
