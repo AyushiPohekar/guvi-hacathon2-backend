@@ -1,7 +1,7 @@
 import {MongoClient} from "mongodb";
 import express from "express";
 import dotenv from "dotenv";
-
+import cors from 'cors';
 import {equipmentsRouter} from './routes/equipments.js';
 import {usersRouter} from './routes/users.js';
 
@@ -9,7 +9,7 @@ import {usersRouter} from './routes/users.js';
 
 
 dotenv.config();
-console.log(process.env.MONGO_URL);
+// console.log(process.env.MONGO_URL);
 
 const app = express();
 
@@ -27,7 +27,7 @@ async function createConnection() {
 
  
 export const client = await createConnection();
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 
 app.get("/", function (req, res) {
